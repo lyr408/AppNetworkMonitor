@@ -1,2 +1,2 @@
 # NetworkMonitor
-It is a network monitoring tool for mobile application
+It is an app network monitoring tool and it can monitor network errors, connection time consumption, etc.
