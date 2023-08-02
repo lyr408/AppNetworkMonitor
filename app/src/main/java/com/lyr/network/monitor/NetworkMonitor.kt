@@ -184,6 +184,7 @@ class NetworkMonitor internal constructor(
 
     override fun responseBodyEnd(call: Call, byteCount: Long) {
         super.responseBodyEnd(call, byteCount)
+        val responseSize = byteCount
         mHttpData.responseByteCount = byteCount
         subEventListener?.requestBodyEnd(call, byteCount)
     }
@@ -193,6 +194,7 @@ class NetworkMonitor internal constructor(
         mHttpData.stepCode = HttpEventStep.callStart
         log("callStart")
         subEventListener?.callStart(call)
+        val requestSize = call.request().body?.contentLength() ?: 0
     }
 
     override fun callFailed(call: Call, ioe: IOException) {
